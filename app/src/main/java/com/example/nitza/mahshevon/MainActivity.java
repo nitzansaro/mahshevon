@@ -1,3 +1,4 @@
+
 package com.example.nitza.mahshevon;
 
 import android.content.Intent;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         b22 = (Button) findViewById(R.id.b22);
     }
 
-    public void radio(View view) {
+    public void radio() {
         if (r1.isChecked())
             rad = 1;
         if (r2.isChecked())
@@ -51,14 +52,17 @@ public class MainActivity extends AppCompatActivity {
         a2 = Double.parseDouble(dp1);
         if ((editText.getText().toString().equals(""))||(editText.getText().toString().equals(".-"))||((editText.getText().toString().equals("."))||(editText.getText().toString().equals("-"))||(editText.getText().toString().equals("-.")))||
                 ((editText1.getText().toString().equals("")) ||(editText1.getText().toString().equals(".-"))||((editText1.getText().toString().equals("."))||(editText1.getText().toString().equals("-"))||(editText1.getText().toString().equals("-."))))){
-            t = new Intent(this, Main2Activity.class);
+            Toast.makeText(this, "error", Toast.LENGTH_LONG).show();
+        } else {
+            radio();
             if (rad != 0)  {
+                t = new Intent(this, Main2Activity.class);
                 t.putExtra("radio", rad);
                 t.putExtra("x", a1);
                 t.putExtra("d", a2);
-                startActivityForResult(t,1);
+                startActivity(t);
             } else {
-                Toast.makeText(this, "error", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Please choose a button!", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -68,4 +72,3 @@ public class MainActivity extends AppCompatActivity {
         startActivity(a);
     }
 }
-

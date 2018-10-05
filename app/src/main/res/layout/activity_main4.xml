@@ -29,10 +29,12 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
+            android:shadowColor="@android:color/black"
+
             android:text="Nitzan Sarodi
 2018"
-
             android:textColor="@color/colorAccent"
+            android:textColorHighlight="@android:color/holo_blue_light"
             android:textColorLink="@color/colorAccent"
             android:textSize="25sp" />
 

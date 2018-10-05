@@ -57,18 +57,19 @@ public class Main2Activity extends AppCompatActivity implements AdapterView.OnIt
 
         n = i + 1;
         t3.setText(Double.toString(n));
-        if (rad1 == 1) {
-            s = ((n * ((2 * x1) + d1 * (n - 1))) / 2);
-        } else {
+        if (rad1 == 2) {
             if (d1 == 1) {
                 s = x1 * n;
             } else {
                 s = ((x1 * ((Math.pow(d1, n)) - 1)) / (d1 - 1));
-
-            }
+                }
             t4.setText(Double.toString(s));
         }
-    }
+        if (rad1 == 1)
+            s = ((n * ((2 * x1) + d1 * (n - 1))) / 2);
+            t4.setText(Double.toString(s));
+        }
+
 
 
 

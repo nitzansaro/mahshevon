@@ -34,38 +34,40 @@ public class MainActivity extends AppCompatActivity {
         b22 = (Button) findViewById(R.id.b22);
     }
 
-    public void radio() {
-        if (r1.isChecked())
-            rad = 1;
-        if (r2.isChecked())
-            rad = 2;
-    }
 
 
 
 
 
     public void go(View view) {
-        String dp = editText.getText().toString();
-        a1 = Double.parseDouble(dp);
-        String dp1 = editText1.getText().toString();
-        a2 = Double.parseDouble(dp1);
-        if ((editText.getText().toString().equals(""))||(editText.getText().toString().equals(".-"))||((editText.getText().toString().equals("."))||(editText.getText().toString().equals("-"))||(editText.getText().toString().equals("-.")))||
-                ((editText1.getText().toString().equals("")) ||(editText1.getText().toString().equals(".-"))||((editText1.getText().toString().equals("."))||(editText1.getText().toString().equals("-"))||(editText1.getText().toString().equals("-."))))){
-            Toast.makeText(this, "error", Toast.LENGTH_LONG).show();
-        } else {
-            radio();
-            if (rad != 0)  {
-                t = new Intent(this, Main2Activity.class);
-                t.putExtra("radio", rad);
-                t.putExtra("x", a1);
-                t.putExtra("d", a2);
-                startActivity(t);
-            } else {
-                Toast.makeText(this, "Please choose a button!", Toast.LENGTH_SHORT).show();
+        if ((editText1.getText().toString().equals("")) || (editText1.getText().toString().equals(".-")) || ((editText1.getText().toString().equals(".")) || (editText1.getText().toString().equals("-")) || (editText1.getText().toString().equals("-."))) ||
+                ((editText.getText().toString().equals("")) || (editText.getText().toString().equals(".-")) || ((editText1.getText().toString().equals(".")) || (editText.getText().toString().equals("-")) || (editText.getText().toString().equals("-.")))))
+
+        Toast.makeText(this, "ERROR", Toast.LENGTH_SHORT).show();
+
+    else {
+            String s1 = editText.getText().toString();
+           a1 = Double.parseDouble(s1);
+            String s2 = editText1.getText().toString();
+            a2 = Double.parseDouble(s2);
+            if ((!r1.isChecked()) && (!r2.isChecked()))
+                Toast.makeText(this, "ERROR", Toast.LENGTH_LONG).show();
+            else {
+                if (r1.isChecked())
+                    rad = 1;
+                else {
+                    rad = 0;
+                }
             }
+            }
+            t = new Intent(this, Main2Activity.class);
+            t.putExtra("radio", rad);
+            t.putExtra("x", a1);
+            t.putExtra("d", a2);
+            startActivity(t);
+
         }
-    }
+
 
     public void go3(View view) {
         Intent a = new Intent(this, Main4Activity.class);
